@@ -9,11 +9,11 @@
   const admin = require("./routes/admin")
   const user = require("./routes/user")
   const app = express()
-  
+
 // CONFIGURAÇÕES
   // SESSION
     app.use(session({
-      secret: "sdjgh58755213fhjgre23hgc548700000xxxxrds",
+      secret: "sdjgh58755213fhjgre23hgc548700000xxxxrdsk",
       resave: true,
       saveUninitialized: true
     }))
