@@ -18,13 +18,14 @@
       resave: true,
       saveUninitialized: true
     }))
+    app.use(flash())
 
   // MIDDLEWARE
-    // app.use((req, res, next) => {
-    //   res.locals.success_msg = req.flash("success_msg")
-    //   res.locals.error_msg = req.flash("error_msg")
-    //   next()
-    // })
+     app.use((req, res, next) => {
+       res.locals.success_msg = req.flash("success_msg")
+       res.locals.error_msg = req.flash("error_msg")
+       next()
+     })
 
   // BODY-PARSER
     app.use(bodyParser.urlencoded({extended: true}))
@@ -47,11 +48,16 @@
   app.get('/', (req, res)=>{
     res.render('index')
   }) 
+
+  app.get('/login', (req, res)=>{
+    res.render('/login')
+  })
+
   app.use('/admin', admin)
   app.use('/user', user)
 
 // OUTROS
   const port = 3000
   app.listen(port, () => {
-    console.log("servidor rodando no link: localhost:3000")
+    console.log("servidor rodando na porta 3000")
   })

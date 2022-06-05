@@ -1,11 +1,10 @@
 const express = require('express')
-const { default: mongoose } = require('mongoose')
+const res = require('express/lib/response')
+const Mongoose = require('mongoose')
 const router = express.Router()
+
 router.get('/', (req, res)=>{
-  res.send("teste")
-})
-router.get('/login', (req, res)=>{
-  res.render('./login')
+  res.render('users/index')
 })
 
 module.exports = router

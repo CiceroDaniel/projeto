@@ -1,12 +1,17 @@
-<h1>CDAATRO DE MESAS</h1>
+{{#each erros}}
+  <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+
+{{/each}}
+<h1>CADSTRO DE MESAS</h1>
 <div class="card">
   <div class="card-body">
     <form action="/admin/mesas/new" method="post">
       <label for="numero">Número:</label>
-        <input type="text" id="numero" name="NUMERO" placeholder="Número da mesA" class="form-control">
+        <input type="text" id="numero" name="numero" placeholder="Número da mesa" class="form-control">
       <label for="descricao">Descrição:</label>
         <input type="text" name="descricao" id="descricao" placeholder="Descricao da mesa" class="form-control">
-      <label for="valor">Preço:</label>
+      <label for="valor">Valor:</label>
         <input type="valor" name="valor" id="valor" placeholder="Preço para agendar a mesa" class="form-control">
       <br>
       <button type="submit" class="btn btn-success">Adicionar nova mesa</button>

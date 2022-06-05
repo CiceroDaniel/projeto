@@ -1,0 +1,29 @@
+<h2>lista de mesas</h2>
+<hr>
+<a href="/admin/mesas/add"><button class="btn btn-warning">Adicionar novas mesas</button></a>
+
+  <div class="row mt-2"> 
+{{#each mesas}}
+    <div class="col">
+      <div class="card mt-2" style="width: 18rem;">
+        <img src="/img/default-image.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h4 class="text-center position-relatine">Mesa: {{numero}}</h4>
+          <small>{{descricao}}</small><br>
+          <small>Valor: {{valor}}</small><hr>
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-outline-warning text-dark">EDITAR</button>
+            </div>
+            <div class="col  align-self-end">
+              <button class="btn btn-outline-danger">DELETAR</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+{{else}}  
+  </div>
+{{/each}}
+    
