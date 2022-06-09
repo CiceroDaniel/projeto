@@ -7,8 +7,11 @@
   const session = require('express-session')
   const flash = require('connect-flash')
   const admin = require("./routes/admin")
-  const user = require("./routes/user")
+  const usuario = require("./routes/user")
+  const passport = require('passport')
+  require("./config/auth")(passport)
   const app = express()
+  const DB = require("./config/db")
 
 // CONFIGURAÇÕES
     app.use(express.static(__dirname + '/public'));
@@ -18,12 +21,16 @@
       resave: true,
       saveUninitialized: true
     }))
+    app.use(passport.initialize())
+    app.use(passport.session())
     app.use(flash())
 
   // MIDDLEWARE
      app.use((req, res, next) => {
        res.locals.success_msg = req.flash("success_msg")
        res.locals.error_msg = req.flash("error_msg")
+       res.locals.error = req.flash("error")
+       res.locals.user = req.user || null;
        next()
      })
 
@@ -38,7 +45,7 @@
 
   // MONGOOSE
     mongoose.Promise = global.Promise;
-    mongoose.connect("mongodb://localhost/restaurante").then(()=>{
+    mongoose.connect(DB.mongoURI).then(()=>{
       console.log("Conectado ao mongo")
     }).catch((err)=>{
       console.log("erro ao se conectar: "+err)
@@ -54,10 +61,10 @@
   })
 
   app.use('/admin', admin)
-  app.use('/user', user)
+  app.use('/usuario', usuario)
 
 // OUTROS
-  const port = 3000
-  app.listen(port, () => {
+  const PORT = process.env.PORT ||3000
+  app.listen(PORT, () => {
     console.log("servidor rodando na porta 3000")
   })

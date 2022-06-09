@@ -11,11 +11,17 @@
   <link rel="stylesheet" href="/public/css/Página-Inicial.css">
   <title>CAPRINO NA BRASA</title>
 </head>
-<body>
+<body class="bg-dark">
   {{>_navbar}}
   <div class="container mt-2">
+    {{#if error}}
+      <div class="alert alert-danger">{{error}}</div>
+    {{else}}
+
+    {{/if}}
     {{>_msg}}
     {{{body}}}
   </div>
+  {{_footer}}
 </body>
 </html>

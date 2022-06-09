@@ -1,23 +1,21 @@
-<h2 class="text-warning">lista de mesas</h2>
-<hr>
-<a href="/admin/mesas/add"><button class="btn btn-warning">Adicionar novas mesas</button></a>
+<h3 class="text-warning">Lista de administradores</h3><hr>
+<a href="/admin/admin/add"><button class="btn btn-warning">Criar novo admin</button></a>
 
-  <div class="row mt-2"> 
-{{#each mesas}}
+<div class="row mt-2"> 
+{{#each usuarios}}
     <div class="col">
       <div class="card mt-2 bg-dark border border-2 border-warning rounded-3" style="width: 18rem; --bs-bg-opacity: .7;">
-        <img src="/img/default-image.jpg" class="card-img-top" alt="...">
+        <img src="/img/a.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-          <h4 class="text-center text-light position-relatine">Mesa: {{numero}}</h4>
-          <small class="text-warning">{{descricao}}</small><br>
-          <small class="text-warning">Valor: {{valor}}</small><br>
+          <h4 class="text-center text-warning position-relatine">nome: {{nome}}</h4>
+          <small class="text-warning">E-mail: {{email}}</small><br>
           <small class="text-warning">Data de criação: {{date}}</small><hr>
           <div class="row">
             <div class="col">
-              <a href="/admin/mesas/edit/{{_id}}"><button class="btn btn-outline-warning text-warning">EDITAR</button></a>
+              <a href="/admin/admin/edit/{{_id}}"><button class="btn btn-outline-warning text-warning">EDITAR</button></a>
             </div>
             <div class="col  align-self-end">
-              <form action="/admin/mesas/deletar" method="post">
+              <form action="/admin/admin/deletar" method="post">
                 <input type="hidden" name="id" value="{{_id}}">
                 <button type="submit" class="btn btn-outline-danger">DELETAR</button>
               </form>
