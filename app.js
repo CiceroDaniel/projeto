@@ -11,7 +11,7 @@
   const passport = require('passport')
   require("./config/auth")(passport)
   const app = express()
-  const DB = require("./config/db")
+  // const DB = require("./config/db")
 
 // CONFIGURAÇÕES
     app.use(express.static(__dirname + '/public'));
@@ -45,7 +45,7 @@
 
   // MONGOOSE
     mongoose.Promise = global.Promise;
-    mongoose.connect(DB.mongoURI).then(()=>{
+    mongoose.connect("mongodb+srv://daniel:da1227 @cluster0.imgykqg.mongodb.net/?retryWrites=true&w=majority").then(()=>{
       console.log("Conectado ao mongo")
     }).catch((err)=>{
       console.log("erro ao se conectar: "+err)
