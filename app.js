@@ -45,7 +45,7 @@
 
   // MONGOOSE
     mongoose.Promise = global.Promise;
-    mongoose.connect("mongodb+srv://daniel:da1227 @cluster0.imgykqg.mongodb.net/?retryWrites=true&w=majority").then(()=>{
+    mongoose.connect("mongodb+srv://daniel:da1227@cluster0.imgykqg.mongodb.net/?retryWrites=true&w=majority").then(()=>{
       console.log("Conectado ao mongo")
     }).catch((err)=>{
       console.log("erro ao se conectar: "+err)
